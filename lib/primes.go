@@ -1,9 +1,9 @@
 package lib
 
-// Seive of Eratosthenes for generating prime numbers
+// Filter of Eratosthenes for generating prime numbers
 func Primes() chan int {
   // TODO: cache primes to a file
-  // TODO?: avoid the divisions by marking a bit array
+  // TODO: prob010 revealed this technique too slow: avoid the divisions by marking a bit array
   var primes []int
   primes = append(primes, 2)
 
