@@ -9,3 +9,11 @@ func DigitSum(n *big.Int) int {
   }
   return s
 }
+
+func Sum(nums []int) int {
+  s := 0
+  for _, n := range nums {
+    s += n
+  }
+  return s
+}

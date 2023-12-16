@@ -25,3 +25,9 @@ func Factors(n int) []int {
   }
   return factors
 }
+
+func Divisors(n int) []int {
+  f := Factors(n)
+  return f[0:len(f)-1]
+}
+
