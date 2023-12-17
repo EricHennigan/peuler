@@ -25,6 +25,6 @@ func main() {
   }
   sum.Exp(sum, big.NewInt(2), nil)
   var ans big.Int
-  ans.Sub(sum_sq, sum)
-  fmt.Println(ans)
+  ans.Sub(sum, sum_sq)
+  fmt.Println(ans.String())
 }

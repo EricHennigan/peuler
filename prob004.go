@@ -8,7 +8,6 @@ package main
 
 import (
   "fmt"
-  "log"
 )
 
 func isPalindrome(s string) bool {
@@ -31,6 +30,6 @@ func main() {
       if (n > N) { N = n }
     }
   }
-  log.Printf("%d", N)
+  fmt.Println(N)
 }
 

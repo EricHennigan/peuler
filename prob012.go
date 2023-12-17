@@ -28,8 +28,8 @@ func main() {
   for t := range lib.TriangleNumbers() {
     factors := lib.Factors(t)
     if len(factors) > N {
-      fmt.Println(t, factors)
-      break
+      fmt.Println(t)
+      return
     }
   }
 }

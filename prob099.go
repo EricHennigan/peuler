@@ -18,24 +18,26 @@ import (
 )
 
 func main() {
-  file, err := os.Open("0099_base_exp.txt")
+  file, err := os.Open("./resources/documents/0099_base_exp.txt")
   if err != nil { log.Fatal("could not open file") }
   defer file.Close()
 
   scanner := bufio.NewScanner(file)
-  ln := 1
+  idx, ln := 1, 1
   nmax := 0.0
   for scanner.Scan() {
     nums := strings.Split(scanner.Text(), ",")
     base, err := strconv.Atoi(nums[0])
-    if err != nil { log.Fatal("could not convert %v", nums[0]) }
+    if err != nil { log.Fatalf("could not convert %v", nums[0]) }
     exp, err := strconv.Atoi(nums[1])
-    if err != nil { log.Fatal("could not convert %v", nums[1]) }
+    if err != nil { log.Fatalf("could not convert %v", nums[1]) }
     val := float64(exp) * math.Log(float64(base))
     if val > nmax {
       nmax = val
+      idx = ln
       fmt.Printf("\t%v: %v, %v\n", ln, base, exp)
     }
     ln += 1
   }
+  fmt.Println(idx)
 }

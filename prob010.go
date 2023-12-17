@@ -8,21 +8,16 @@ package main
 
 import (
   "fmt"
-  "time"
   "peuler/lib"
 )
 
 const STOP = 2_000_000
 
 func main() {
-  start := time.Now()
   sum := 0
-  for p := range lib.Primes() {
-    if p >= STOP {
-      fmt.Println(sum, time.Since(start))
-      return
-    }
+  for p := range lib.PrimesUpTo(STOP) {
     sum += p
   }
+  fmt.Println(sum)
 }
 

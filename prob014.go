@@ -60,13 +60,15 @@ func main() {
     }
     dist[n] = d
   }
-  m := 0
+  m, idx := 0, 0
   for n := 1; n <= N; n++ {
     if dist[n] > m {
       m = dist[n]
+      idx = n
       fmt.Printf("%v has length %v\n", n, m)
     }
   }
+  fmt.Println(idx)
 }
 
 

@@ -7,8 +7,8 @@ package main
 */
 
 import (
-  "log"
   "peuler/lib"
+  "fmt"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
   i := 1
   for p := range lib.Primes() {
     if i == stop {
-      log.Println(p)
+      fmt.Println(p)
       return
     }
     i++
