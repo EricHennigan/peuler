@@ -6,6 +6,7 @@ import (
   "os"
   "os/exec"
   "strings"
+  "time"
 )
 
 func TestAnswers(t *testing.T) {
@@ -18,6 +19,7 @@ func TestAnswers(t *testing.T) {
     data := strings.Split(scanner.Text(), ": ")
     if len(data) != 2 { continue }
     data[0] = "prob" + data[0] + ".go"
+    start := time.Now()
     cmd := exec.Command("go", "run", data[0])
     cmd.Dir = "../"
     stdout, err := cmd.Output()
@@ -27,5 +29,6 @@ func TestAnswers(t *testing.T) {
     if answ != data[1] {
       t.Fatalf("testing %v got %v wanted %v\n", data[0], answ, data[1])
     }
+    t.Log(time.Now().Sub(start), "\t", data[0], "\t", answ)
   }
 }

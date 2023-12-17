@@ -11,13 +11,16 @@ type pair struct {
 func Factors(n int) []int {
   var pairs []pair
   stop := int(math.Sqrt(float64(n)))
+  hasDup := 0
   for i := 1; i <= stop; i++ {
     q, r := n/i, n%i
     if r == 0 {
-      pairs = append(pairs, pair{i, q})
+      p := pair{i, q}
+      if i == q { hasDup = 1 }
+      pairs = append(pairs, p)
     }
   }
-  s := len(pairs)*2
+  s := len(pairs)*2 - hasDup
   factors := make([]int, s)
   for i, p := range pairs {
     factors[i] = p.a
