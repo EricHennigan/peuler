@@ -11,12 +11,21 @@ func DigitSum(n *big.Int) int {
 }
 
 // produces the reverse of the digits
-// The number 0 yields []
 func RDigits(n int) []int {
+  if n == 0 { return []int{0} }
   var d []int
   for n > 0 {
     d = append(d, n % 10)
     n /= 10
+  }
+  return d
+}
+
+// turn a number into a digit list
+func AsDigits(n int) []int {
+  d := RDigits(n)
+  for i, j := 0, len(d)-1; i < j; i, j = i+1, j-1 {
+   d[i], d[j] = d[j], d[i]
   }
   return d
 }
