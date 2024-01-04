@@ -47,3 +47,13 @@ func DigitsAsInt(digits []int) int {
   }
   return num
 }
+
+func IsPalindrome(arr []int) bool {
+  s := len(arr)
+  for i := 0; i < s/2; i++ {
+    if arr[i] != arr[s-i-1] {
+      return false
+    }
+  }
+  return true
+}

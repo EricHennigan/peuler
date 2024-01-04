@@ -37,3 +37,36 @@ func TestDigitsAsInt(t *testing.T) {
     }
   }
 }
+
+func TestIsPalindrome(t *testing.T) {
+  tests := []struct {
+    input []int
+    expected bool
+  }{
+    {
+      input: []int{},
+      expected: true,
+    }, {
+      input: []int{0},
+      expected: true,
+    }, {
+      input: []int{0, 1},
+      expected: false,
+    }, {
+      input: []int{0, 1, 0},
+      expected: true,
+    }, {
+      input: []int{0, 2, 2, 0},
+      expected: true,
+    }, {
+      input: []int{0, 2, 2, 1},
+      expected: false,
+    },
+  }
+  for _, d := range tests {
+    actual := IsPalindrome(d.input)
+    if actual != d.expected {
+      t.Fatalf("incorrect palindrome result for %v, got=%v", d.input, actual)
+    }
+  }
+}
