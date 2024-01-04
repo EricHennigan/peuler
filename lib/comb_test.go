@@ -5,6 +5,22 @@ import (
   "reflect"
 )
 
+func TestRotations(t *testing.T) {
+  input := []int{1, 2, 3}
+  expected := [][]int{
+    {1, 2, 3},
+    {2, 3, 1},
+    {3, 1, 2},
+  }
+  var actual [][]int
+  for r := range Rotations(input) {
+    actual = append(actual, r)
+  }
+  if !reflect.DeepEqual(expected, actual) {
+    t.Fatalf("incorrect rotations %v", actual)
+  }
+}
+
 func TestPermutations(t *testing.T) {
   input := []int{1, 2, 3}
   expected := [][]int{
